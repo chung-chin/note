@@ -1,0 +1,26 @@
+{
+  "name": "pkg",
+  "version": "1.0.0",
+  "description": "- 在package.json中設定進入點`\"bin\"`、檔案路徑`\"assets\"`和打包工具`\"targets\"`",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "pkg . -t -o hello -d > out.log &"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.1"
+  },
+  "bin": "index.js",
+  "pkg": {
+    "assets": [
+      "./views/**/*"
+    ],
+    "targets": [
+      "node14-linux-x64"
+    ]
+  } 
+}
