@@ -24,14 +24,70 @@ let dName = 'index.js';
 // let re = apps.readDir(gemPath);
 // console.log(re);
 
-apps.readDir(gemPath).then( res => {
-    // console.log(res.message);
+// apps.readDir(gemPath).then( res => {
+//     // console.log(res.message);
 
-    if ( res.errno == -2) {
-        console.log(res.message);
-    } else if ( res === 'No files') {
-        console.log(res);
-    } else {
-        console.log(res);
+//     if ( res.errno == -2) {
+//         console.log(res.message);
+//     } else if ( res === 'No files') {
+//         console.log(res);
+//     } else {
+//         console.log(res);
+//     }
+// })
+
+let inputIP;
+
+const testIP = {
+    "eth0": {
+        "address": "192.168.8.3",
+        "netmask": "255.255.255.0",
+        "gateway": "192.168.8.1"
+    },
+    "eth1": {
+        "address": "192.168.137.3",
+        "netmask": "255.255.255.0",
+        "gateway": ""
     }
-})
+}
+
+// if ( !testIP.eth0 && !testIP.eth1 ) {
+//     inputIP = 'BothNone'
+// } else if ( testIP.eth0 && testIP.eth1 ) {
+//     inputIP = 'Both'
+// } else if ( testIP.eth0 && !testIP.eth1 ) {
+//     inputIP = 'Eth0'
+// } else if ( !testIP.eth0 && testIP.eth1 ) {
+//     inputIP = 'Eth0'
+// }
+
+// switch (inputIP) {
+//     case 'BothNone':
+//         console.log('Fail');
+//         break;
+//     case 'Eth0':
+//         console.log('eth0');
+//         break;
+//     case 'Eth1':
+//         console.log('eth1');
+//         break;
+//     case 'Both':
+//         console.log('both');
+//         break;
+//     default:
+//         console.log('error');
+//         break;
+// }
+
+
+if ( !testIP.eth0 && !testIP.eth1 ) {
+    console.log('Fail');
+} else if ( testIP.eth0 && testIP.eth1 ) {
+    console.log('both');
+} else if ( testIP.eth0 && !testIP.eth1 ) {
+    console.log('eth0');
+} else if ( !testIP.eth0 && testIP.eth1 ) {
+    console.log('eth1');
+} else {
+    console.log('error');
+}
