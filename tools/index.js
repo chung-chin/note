@@ -51,43 +51,14 @@ const testIP = {
     }
 }
 
-// if ( !testIP.eth0 && !testIP.eth1 ) {
-//     inputIP = 'BothNone'
-// } else if ( testIP.eth0 && testIP.eth1 ) {
-//     inputIP = 'Both'
-// } else if ( testIP.eth0 && !testIP.eth1 ) {
-//     inputIP = 'Eth0'
-// } else if ( !testIP.eth0 && testIP.eth1 ) {
-//     inputIP = 'Eth0'
-// }
-
-// switch (inputIP) {
-//     case 'BothNone':
-//         console.log('Fail');
-//         break;
-//     case 'Eth0':
-//         console.log('eth0');
-//         break;
-//     case 'Eth1':
-//         console.log('eth1');
-//         break;
-//     case 'Both':
-//         console.log('both');
-//         break;
-//     default:
-//         console.log('error');
-//         break;
-// }
-
-
-if ( !testIP.eth0 && !testIP.eth1 ) {
-    console.log('Fail');
-} else if ( testIP.eth0 && testIP.eth1 ) {
-    console.log('both');
-} else if ( testIP.eth0 && !testIP.eth1 ) {
-    console.log('eth0');
-} else if ( !testIP.eth0 && testIP.eth1 ) {
-    console.log('eth1');
-} else {
-    console.log('error');
+class InputConfig {
+    constructor(eth) {
+        this.address = eth.address;
+        this.netmask = eth.netmask;
+        this.gateway = eth.gateway;
+    }
 }
+
+eth0 = new InputConfig(testIP.eth0);
+
+console.log(eth0.address);
