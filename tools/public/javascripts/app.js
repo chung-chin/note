@@ -16,11 +16,6 @@ exports.test = async () => {
     return result;
 }
 
-exports.test2 = async () => {
-    let result = await exec('ls');
-    return result;
-}
-
 exports.test3 = async (dName) => {
     let result = await exec('ls');
     // let msg;
@@ -69,6 +64,22 @@ exports.readDir = (fullPath) => {
 
     // return result;
 
+}
+
+
+exports.checkIP = (eth0, eth1) => {
+    const IPtest = /^((\d)|(([1-9])\d)|(1\d\d)|(2(([0-4]\d)|5([0-5]))))\.((\d)|(([1-9])\d)|(1\d\d)|(2(([0-4]\d)|5([0-5]))))\.((\d)|(([1-9])\d)|(1\d\d)|(2(([0-4]\d)|5([0-5]))))\.((\d)|(([1-9])\d)|(1\d\d)|(2(([0-4]\d)|5([0-5]))))$/
+
+    let result = [];
+
+    result[0] = IPtest.test(eth0.address);
+    result[1] = IPtest.test(eth0.netmask);
+    result[2] = IPtest.test(eth0.gateway);
+    result[3] = IPtest.test(eth1.address);
+    result[4] = IPtest.test(eth1.netmask);
+    result[5] = IPtest.test(eth1.gateway);
+
+    return result;
 }
 
 // exports.checkFolder = (fullPath) => {
